@@ -4,12 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 
-import Card from './Card.js'
+import CardList from './CardList.js'
+import {robots} from './robots.js';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Card name={'Test name'} email={'test@test.com'}/>
+    <CardList robots={robots} />
   </React.StrictMode>
 );
 
