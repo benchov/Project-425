@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import CardList from "./CardList";
 import { robots } from "./robots";
 import SearchBox from "./SearchBox";
+import "./app.css";
 
 
 
@@ -20,8 +21,8 @@ const App = () => {
     }
 
     return (
-        <div>
-            <h1>RobotFriends</h1>
+        <div className="tc shadow-5">
+            <h1 className="tc ">RobotFriends</h1>
             <SearchBox searchOnChange={(e) => handleSearch(e.target.value)} />
             <CardList robots={filteredRobots}/>
         </div>
