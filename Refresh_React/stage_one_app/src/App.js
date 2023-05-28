@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import CardList from "./CardList";
-import { robots } from "./robots";
 import SearchBox from "./SearchBox";
 import "./app.css";
 
@@ -9,7 +8,6 @@ import "./app.css";
 const App = () => {
     const [searchValue, setSearchValue] = useState('');
     const [robots, setRobots] = useState([])
-    const [filteredRobots, setFilteredRobots] = useState(robots)
 
     useEffect(()=>{
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -17,20 +15,24 @@ const App = () => {
             .then(users => setRobots(users));
     })
 
-    const handleFilter = () => {
-        searchValue.length > 1 ? setFilteredRobots(robots.filter((robot) => {
-            return robot.name.toLowerCase().includes(searchValue.toLowerCase())
-        })) : setFilteredRobots(robots)
-    }
+    const filteredRobots = (robots.filter((robot) => {
+        const name_split = robot.name.split(' ')
+        return (
+            name_split[0].slice(0,3).toLowerCase().startsWith(searchValue.toLowerCase()) 
+            ||        
+            name_split[1].slice(0,3).toLowerCase().startsWith(searchValue.toLowerCase()) 
+            )
+    }))
+
+
     const handleSearch = (e) => {
-        setSearchValue(e)
-        handleFilter()
+        setSearchValue(e.target.value)
     }
 
     return (
         <div className="tc shadow-5">
             <h1 className="tc ">RobotFriends</h1>
-            <SearchBox searchOnChange={(e) => handleSearch(e.target.value)} />
+            <SearchBox searchOnChange={handleSearch} />
             <CardList robots={filteredRobots}/>
         </div>
     )
