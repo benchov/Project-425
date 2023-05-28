@@ -13,7 +13,7 @@ const App = () => {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then(res => res.json())
             .then(users => setRobots(users));
-    })
+    },[searchValue])
 
     const filteredRobots = (robots.filter((robot) => {
         const name_split = robot.name.split(' ')
