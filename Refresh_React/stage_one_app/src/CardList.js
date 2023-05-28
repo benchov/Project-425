@@ -7,7 +7,8 @@ const CardList = ({robots}) => {
             key={robots[index].id}
             id={robots[index].id} 
             name ={robots[index].name} 
-            email={robots[index].name} />
+            email={robots[index].email}
+            username={robots[index].username} />
     ))
     return cardArray
 }
