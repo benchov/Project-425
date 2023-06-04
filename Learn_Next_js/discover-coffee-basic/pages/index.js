@@ -7,6 +7,10 @@ import Banner from '../components/banner';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const handleBannerOnClick = () => {
+    console.log('Ossu')
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +18,7 @@ export default function Home() {
       </Head>
       <main>
         <h1>Test H1</h1>
-        <Banner buttonText={"Hello Button"}/>
+        <Banner buttonText={"Hello Button"} onClickHandler={handleBannerOnClick}/>
       </main>
       <footer></footer>
     </div>
