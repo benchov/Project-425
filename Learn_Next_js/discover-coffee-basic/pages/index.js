@@ -17,7 +17,6 @@ export default function Home() {
         <title>Test title</title>
       </Head>
       <main>
-        <h1>Test H1</h1>
         <Banner buttonText={"Hello Button"} onClickHandler={handleBannerOnClick}/>
       </main>
       <footer></footer>
