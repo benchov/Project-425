@@ -8,8 +8,11 @@ const CoffeeShop = () => {
         <div>
             <div>{router.query.id}</div>
             <Link href="http://localhost:3000/">
-            <p>Back to home</p>
-             </Link>
+                <p>Back to home</p>
+            </Link>
+            <Link href="/coffee-shop/">
+                <p>Test the dynamic route</p>
+            </Link>
         </div>
     )
 }
