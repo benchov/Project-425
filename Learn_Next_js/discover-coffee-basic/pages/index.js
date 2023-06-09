@@ -13,7 +13,7 @@ export default function Home() {
       <Head>
         <title>Test title</title>
       </Head>
-      <main>
+      <main className={styles.main}>
         <Banner buttonText={"Hello Button"} onClickHandler={handleBannerOnClick}/>
       </main>
       <footer></footer>
