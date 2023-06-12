@@ -2,18 +2,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: IBMPlexSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: IBMPlexSans-LightItalic, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: rgb(255,227,187);
   background: linear-gradient(90deg, rgba(255,227,187,1) 0%, rgba(233,190,129,1) 18%, rgba(255,159,24,1) 100%);
   /* color: #373b64; */
-}
-
-@font-face {
-  font-family: "IBMPlexSans";
-  font-style: normal;
-  font-weight: 500;
-  src: url(/fonts/IBMPlexSans-Regular.ttf) format("truetype");
 }
 
 @font-face {
