@@ -16,6 +16,16 @@
     top: 0px;
     z-index: 1;
 }
+.cardLayout {
+    display: grid;
+    grid-template-columns:  repeat(1, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+}
+
+.card {
+    justify-content: center;
+}
 
 @media (mon-width: 640px) {
     .container {
@@ -29,6 +39,26 @@
     }
     .heroImage {
         right: 20%;
+    }
+    .cardLayout {
+        grid-template-columns:  repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .main {
+        margin-top: 4rem;
+    }
+
+    .heroImage {
+        right: 20%;
+    }
+    .cardLayout {
+        grid-template-columns:  repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -46,19 +76,10 @@
     .heroImage {
         right: 20%;
     }
-}
-
-@media (min-width: 768px) {
-    .container {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-    }
-    .main {
-        margin-top: 4rem;
-    }
-
-    .heroImage {
-        right: 20%;
+    .cardLayout {
+        grid-template-columns:  repeat(3, minmax(0, 1fr));
     }
 }
+
+
 

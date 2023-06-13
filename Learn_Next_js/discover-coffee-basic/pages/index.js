@@ -18,11 +18,14 @@ export default function Home() {
         <Banner buttonText={"View stores nearby"} onClickHandler={handleBannerOnClick}/>
         <div className={styles.heroImage}>
           <Image src='/static/hero-image.png' width={700} height={400}/>
-          <Card 
-            cardTitle="Test Coffee Shop"
-            imgUrl='/static/c1.jpeg'
-            url='/coffee-shop/test1'
-          />
+          <div className={styles.cardLayout}> 
+            <Card 
+              cardTitle="Test Coffee Shop"
+              imgUrl='/static/c1.jpeg'
+              url='/coffee-shop/test1'
+              className={styles.card}
+            />
+          </div>
         </div>
       </main>
       <footer></footer>
