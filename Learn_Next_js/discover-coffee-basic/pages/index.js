@@ -30,7 +30,6 @@ export default function Home(props) {
         />
       )
     }
-
     )
   }
   return (
@@ -42,9 +41,17 @@ export default function Home(props) {
         <Banner buttonText={"View stores nearby"} onClickHandler={handleBannerOnClick}/>
         <div className={styles.heroImage}>
           <Image src='/static/hero-image.png' width={700} height={400}/>
-          <div className={styles.cardLayout}> 
-            {showStores()}
-          </div>
+          {props.coffeeStores.length > 0 ? (
+              <>
+               <h2>Toronto Stores</h2>
+               <div className={styles.cardLayout}> 
+                 {showStores()}
+               </div>
+              </> 
+
+          ):
+          <><h2>No data fallback case</h2></>
+       }
         </div>
       </main>
       <footer></footer>
