@@ -43,7 +43,7 @@ export default function Home(props) {
           <Image src='/static/hero-image.png' width={700} height={400}/>
           {props.coffeeStores.length > 0 ? (
               <>
-               <h2>Toronto Stores</h2>
+               <h2 className={styles.heading2}>Toronto Stores</h2>
                <div className={styles.cardLayout}> 
                  {showStores()}
                </div>
