@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Link from 'next/link';
+import Head from 'next/head';
 import coffeStoreData from "../../data/coffee-stores.json"
 
 export function getStaticProps(staticProps) {
@@ -14,29 +15,36 @@ export function getStaticProps(staticProps) {
 }
 
 export function getStaticPaths() {
+    const paths = coffeStoreData.map(coffeStore => {
+        return {
+            params: {
+                id: coffeStore.id.toString()
+            }
+        }
+    })
     return {
-        paths: [ {params: {id: "0"}}, {params: {id: "1"}}],
+        paths,
         fallback: true,
     }
 }
 const CoffeeShop = (props) => {
     const router = useRouter();
-
+    const {address, name, neighbourhood} = props.coffeeStore
     if(router.isFallback) {
         return <div>Loading...</div>
     }
-    
+
     return (
         <div>
-            <div>{router.query.id}</div>
+            <Head>
+                <title>{name}</title>
+            </Head>
             <Link href="http://localhost:3000/">
                 <p>Back to home</p>
             </Link>
-            <Link href="/coffee-shop/">
-                <p>Test the dynamic route</p>
-            </Link>
-            <p>{props.coffeeStore.address}</p>
-            <p>{props.coffeeStore.name}</p>
+            <p>{address}</p>
+            <p>{name}</p>
+            <p>{neighbourhood}</p>
 
         </div>
     )
