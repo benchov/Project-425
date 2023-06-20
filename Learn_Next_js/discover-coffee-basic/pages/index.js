@@ -4,11 +4,12 @@ import styles from "../styles/index.module.css"
 import Banner from '../components/banner';
 import Card from '../components/card'
 import coffeeStores from '../data/coffee-stores.json'
+import FSData from '../data/foursquare-data.json'
 
 export async function getStaticProps (context){
   return {
     props: {
-      coffeeStores,
+      coffeeStores: FSData.results,
     }
   }
 }
@@ -20,12 +21,13 @@ export default function Home(props) {
 
   const showStores = () => {
     return props.coffeeStores.map( (coffeeStore) => {
+      console.log(coffeeStore)
       return (
         <Card 
-          key={coffeeStore.id}
+          key={coffeeStore.fsq_id}
           cardTitle={coffeeStore.name}
-          imgUrl={coffeeStore.imgUrl}
-          url={`/coffee-shop/${coffeeStore.id}`}
+          imgUrl={coffeeStore.imgUrl ? imgUrl : '/static/c1.jpeg'}
+          url={`/coffee-shop/${coffeeStore.fsq_id}`}
           className={styles.card}
         />
       )
