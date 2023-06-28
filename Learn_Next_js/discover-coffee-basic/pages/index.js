@@ -41,6 +41,7 @@ export default function Home(props) {
       </Head>
       <main className={styles.main}>
         <Banner buttonText={isLocating ? "Loading..." : "View stores nearby"} onClickHandler={handleBannerOnClick}/>
+        {errorMsg && <p>Something went wrong: {errorMsg}</p>}
         <div className={styles.heroImage}>
           <Image src='/static/hero-image.png' width={700} height={400}/>
           {props.coffeeStores.length > 0 ? (
