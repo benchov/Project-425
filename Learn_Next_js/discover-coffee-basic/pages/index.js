@@ -5,6 +5,7 @@ import Banner from '../components/banner';
 import Card from '../components/card'
 import coffeeStores from '../data/coffee-stores.json'
 import FSData from '../data/foursquare-data.json'
+import useTrackLocation from '../hooks/use-track-location';
 
 export async function getStaticProps (context){
   return {
@@ -14,14 +15,13 @@ export async function getStaticProps (context){
   }
 }
 export default function Home(props) {
-
+  const {latLong, errorMsg, handleTrackLocation,isLocating } = useTrackLocation()
   const handleBannerOnClick = () => {
-    console.log('Ossu')
+    handleTrackLocation()
   }
 
   const showStores = () => {
     return props.coffeeStores.map( (coffeeStore) => {
-      console.log(coffeeStore)
       return (
         <Card 
           key={coffeeStore.fsq_id}
@@ -40,7 +40,7 @@ export default function Home(props) {
         <title>Test title</title>
       </Head>
       <main className={styles.main}>
-        <Banner buttonText={"View stores nearby"} onClickHandler={handleBannerOnClick}/>
+        <Banner buttonText={isLocating ? "Loading..." : "View stores nearby"} onClickHandler={handleBannerOnClick}/>
         <div className={styles.heroImage}>
           <Image src='/static/hero-image.png' width={700} height={400}/>
           {props.coffeeStores.length > 0 ? (
